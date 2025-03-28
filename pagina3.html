@@ -13,6 +13,88 @@
         <p>3.1. Dependencias funcionales.</p>
 	<p>3.2. Diseño relacional.</p>
 	<p>3.3. Reglas de Integridad.</p>
+	    Una vez definida la estructura de datos del modelo relacional, pasamos a estudiar las reglas de integridad que los datos almacenados en dicha estructura deben cumplir para garantizar que son correctos. Pero antes de abordar este tema definiremos el concepto de integridad:
+
+Integridad se refiere  a la corrección o exactitud de la información contenida en la base de datos. Una base de datos puede estar sujeta a una serie de restricciones de integridad de una complejidad arbitraria.
+Un ejemplo de integridad siguiendo con nuestro ejemplo de la relación Alumnos es la siguiente:
+
+Un alumno no puede tener más de una matrícula.
+
+Por lo que podemos decir que la integridad es el término utilizado para decir que la información almacenada tiene calidad.
+
+Una vez definida la estructura de datos del modelo relacional, pasamos a definir las reglas de integridad de los datos almacenados que en dicha estructura deben cumplir para garantizar que son correctos.
+
+Al definir cada atributo sobre un dominio se impone una restricción sobre el conjunto de valores permitidos para cada atributo, a este tipo de restricciones se les denomina restricciones de dominios. Hay además dos reglas de integridad muy importantes que son restricciones que se deben cumplir en todas las bases de datos relacionales y en todos sus estados o instancias (las reglas se deben cumplir todo el tiempo). Estas reglas son la regla de integridad de dominios, la regla de integridad de entidades y la regla de integridad referencial, pero antes de definirlas es preciso conocer el concepto de nulo y de dominio (el cual ya se definió en el apartado anterior).
+
+Nulo. Cuando en una tupla un atributo es desconocido, se dice que es nulo. 
+Un nulo no representa el valor cero ni la cadena vacía, éstos son valores que tienen significado. 
+El nulo implica ausencia de información, bien porque al insertar la tupla se desconocía el valor del atributo, o bien porque para dicha tupla el atributo no tiene sentido.
+Debido a que los nulos no son valores, deben tratarse de modo diferente, lo que causa problemas de implementación. De hecho, no todos los SGBD relacionales soportan los nulos.
+
+* Regla de integridad de dominios
+Un dominio de valores posibles puede estar asociado a cada atributo. Los límites de dominio son la forma más elemental de restricciones de integridad, son fáciles de probar en el sistema siempre que se introduce un nuevo dato en el sistema. Una definición adecuada de restricciones de dominio no sólo nos permite probar valores insertados en la base de datos, sino también probar consultas para asegurar que la comparación que se hace tiene sentido.
+
+En una tabla Empleados, el campo Edad debe ser un número entero y debe estar dentro de un rango lógico, como entre 18 y 100 años.
+
+// Ejemplo: En una tabla Empleados, el campo Edad debe ser un número entero y debe estar dentr|o de un rango lógico, como entre 18 y 100 años.	    
+	    <img> </img>
+* Integridad de Unicidad
+Esta regla asegura que los valores en una columna sean únicos, lo que significa que no se pueden duplicar los valores en dicha columna.
+
+// Ejemplo: En una tabla Usuarios, el campo Email debe ser único para cada usuario, lo que significa que dos usuarios no pueden tener el mismo correo electrónico.
+
+* Integridad de entidad
+
+Las restricciones de entidades aseguran la integridad de las entidades que son modeladas por el sistema. La existencia de una clave principal es una restricción de entidad que impone la regla “cada entidad debe estar identificada de forma única”; en esta no está permitido que ningún componente de la clave primaria de cualquier registro acepte valores nulos y que debe comprobar que los atributos que forman parte de una llave primaria son diferentes de nulos y que el valor conjunto de ellos no está repetido en el proceso de inserción y actualización.
+
+Las razones de esta regla son las siguientes:
+
+Las tuplas en las relaciones base representan entidades en la realidad.
+Las entidades en la realidad son identificables por definición.
+Sus contrapartes en la base de datos también deben ser identificables.
+Los valores de la clave primaria sirven como identificadores en la base de datos.
+Los valores de clave primaria no pueden estar nulos.
+Cada entidad debe tener un campo llave; siguiendo con nuestro ejemplo de la relación Alumnos, la matrícula.
+
+// Ejemplo: En una tabla Clientes, el campo ID_Cliente debe ser único para cada cliente. Si intentas insertar un cliente con un ID_Cliente que ya existe, la base de datos no lo permitirá.
+	    
+* Integridad referencial
+
+La regla de integridad referencial, no debe contener valores de clave ajena sin concordancia. Esta regla de integridad referencial se aplica a las claves ajenas; si en una relación hay alguna clave ajena, sus valores deben coincidir con valores de la clave primaria a la que hace referencia, o bien debe ser completamente nulo.
+Esta regla aplicada a nuestro ejemplo impide que un alumno que no exista tenga calificación en un curso.
+
+Por lo tanto, para cada clave ajena de la base de datos habrá que contestar a tres preguntas:
+
+Regla de los nulos: ¿Tiene sentido que la clave ajena acepte nulos?
+Regla de borrado: ¿Qué ocurre si se intenta borrar la tupla referenciada por la clave ajena?
+Restringir: no se permite borrar la tupla referenciada. 
+Propagar: se borra la tupla referenciada y se propaga el borrado a las tuplas que la referencian mediante la clave ajena. 
+Anular: se borra la tupla referenciada y las tuplas que la referenciaban ponen a nulo la clave ajena (sólo si acepta nulos).
+
+Regla de modificación: ¿Qué ocurre si se intenta modificar el valor de la clave primaria de la tupla referenciada por la clave ajena?
+Restringir: no se permite modificar el valor de la clave primaria de la tupla referenciada. 
+Propagar: se modifica el valor de la clave primaria de la tupla referenciada y se propaga la modificación a las tuplas que la referencian mediante la clave ajena. 
+Anular: se modifica la tupla referenciada y las tuplas que la referenciaban ponen a nulo la clave ajena (sólo si acepta nulos).
+
+La integridad referencial también vigila que se cumplan las siguientes reglas:
+No se podrá introducir un valor en la tabla relacionada si antes no ha sido introducida en la tabla principal.
+No se puede eliminar un registro de una tabla principal si existen registros coincidentes en la tabla principal.
+No se puede cambiar un valor de la clave principal (campo llave) en la tabla principal si el registro tiene registros relacionados.
+
+// Ejemplo: En una base de datos con una tabla Pedidos y una tabla Clientes, el campo ID_Cliente en la tabla Pedidos debe hacer referencia a un cliente válido en la tabla Clientes.
+
+* Integridad de Completitud
+Esta regla asegura que todos los valores de las columnas requeridas no sean nulos (NOT NULL), es decir, que no falten datos obligatorios.
+
+// Ejemplo: En una tabla Productos, el campo Precio no debe ser nulo, ya que es esencial para calcular las ventas. Se puede asegurar con una restricción NOT NULL.
+En este caso, la restricción NOT NULL en el campo Precio asegura que siempre debe existir un precio para cada producto.
+
+* Integridad de Usuario
+Esta regla se refiere a la integridad de los datos que es impuesta por el propio usuario o administrador de la base de datos, más allá de las reglas automáticas. Se pueden crear restricciones adicionales según el modelo de negocio.
+
+//Ejemplo: En una tienda en línea, un campo Cantidad en la tabla Pedidos no debe ser negativo, ya que no tiene sentido tener una cantidad negativa de productos en un pedido. Esto se puede asegurar mediante una restricción de comprobación (check).
+Aquí, la restricción asegura que la Cantidad nunca será negativa.
+
 	<p>3.4. Lenguajes de los sistemas administradores de bases de datos.</p>
         <a href="index.html" class="back">Volver al inicio</a>
     </div>
