@@ -9,10 +9,11 @@ Cada estudiante deberá modificar este archivo **README.md**, colocando un emoji
 2. 🎸 **María López**
 3. 🏀 **Carlos Ramírez**
 4. 🎨 **Ana Torres**
+5. 🎉 **Frank Caceres**}
+37. **Señor Lapiz***
 5. 🎉 **Frank Caceres**
 24. ☺️ **Nubia Yesenia Campos Ortega**
 6. **Kevin Andres Rojas**
-
 
 ---
 
