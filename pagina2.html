@@ -12,6 +12,47 @@
         <h1>Modelo Entidad Relación</h1>
         <p>2.1. Relaciones entre entidades.</p>
 	<p>2.2. Relaciones de uno a muchos.</p>
+	
+	    <p> Modelo Entidad-Relación (ER) - Relación Uno a Muchos </p>
+
+		<p>En el modelo entidad-relación (ER), la relación uno a muchos (1:N) </p>
+
+		<p><br> describe una relación en la que una entidad A puede estar asociada con múltiples instancias de una entidad B, pero una instancia de B solo puede estar asociada con una instancia de A. </p>
+
+		<p><br> Entidad A: Tabla o entidad que representa un objeto único (por ejemplo, "Autor"). </p>
+
+		<p><br> Entidad B: Tabla o entidad que representa múltiples objetos que están relacionados con una única instancia de A (por ejemplo, "Libro"). </p>
+
+		<p><br> Relación: El autor puede escribir varios libros, pero cada libro tiene un solo autor. </p>
+
+		<p><br> Ejemplo: </p>
+
+		<p><br> Autor y Libro. </p>
+
+		<p><br> Un autor puede escribir varios libros, pero cada libro tiene un solo autor. </p>
+
+		<p><br> La relación es uno a muchos (1:N). </p>
+		 </p>
+
+	    <p>	<br> Ejemplo:
+		<br> Un sistema de gestión de estudiantes y cursos, donde un curso puede tener muchos estudiantes, 
+		<br> pero cada estudiante está inscrito en un solo curso.
+		<br> +------------------+         1  +-------------------+
+		<br> |    Curso        | ------------|   Estudiante      |
+		<br> |-----------------|         N   |-------------------|
+		<br> | id_curso (PK)   |             | id_estudiante (PK)|
+		<br> | nombre          |             | nombre            |
+		<br> | duración        |             | id_curso (FK)     |
+		<br> +-----------------+             +-------------------+
+		<br> (PK) = Clave primaria (Primary Key)
+		<br> (FK) = Clave foránea (Foreign Key)
+		<br> 📌 Explicación:
+
+		<br> La entidad Curso tiene un identificador único (id_curso).
+		<br> La entidad Estudiante tiene un identificador único (id_estudiante) y una clave foránea (id_curso) que indica en qué curso está inscrito.
+		<br> La relación es Uno a Muchos (1:N) porque un curso puede tener muchos estudiantes, pero cada estudiante pertenece a un solo curso.
+	    </p>
+	    
 	<p>2.3. Relaciones de muchos a muchos.</p>
 	<p>2.4. Relaciones de uno a uno.</p>
         <a href="index.html" class="back">Volver al inicio</a>
