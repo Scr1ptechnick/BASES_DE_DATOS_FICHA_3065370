@@ -25,28 +25,71 @@ Las relaciones entre entidades pueden tener diferentes tipos de correspondencia,
 1:N (Uno a muchos): A cada elemento de la primera entidad le corresponde uno o más elementos de la segunda entidad, pero a cada elemento de la segunda entidad solo le corresponde uno de la primera entidad. Un ejemplo sería un proveedor que suministra varios artículos, pero cada artículo tiene un único proveedor.
 N:M (Varios a varios): Varias ocurrencias de una entidad pueden estar asociadas a varias de la otra. Por ejemplo, un estudiante puede inscribirse en varios cursos, y cada curso puede tener varios estudiantes inscritos.</p>
 	<p>2.2. Relaciones de uno a muchos.</p>
-	
+    <meta charset="UTF-8">
+    <title>Relación Uno a Muchos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #333;
+        }
+        .relacion {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .entidad {
+            background-color: #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 0 20px;
+            width: 200px;
+            text-align: center;
+        }
+        .flecha {
+            font-size: 24px;
+        }
+        .ejemplo {
+            margin-top: 40px;
+            background-color: #fff;
+            padding: 20px;
+            border-left: 4px solid #4caf50;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Relación de Entidad: Uno a Muchos</h1>
+    <p>En una base de datos, una relación uno a muchos significa que una entidad (registro) en una tabla puede estar relacionada con múltiples registros en otra tabla.</p>
+
+    <div class="relacion">
+        <div class="entidad">
+            <strong>Cliente</strong><br>
+            ID_Cliente<br>
+            Nombre<br>
+            Correo
+        </div>
+        <div class="flecha">➡️</div>
+        <div class="entidad">
+            <strong>Pedidos</strong><br>
+            ID_Pedido<br>
+            Fecha<br>
+            ID_Cliente
+        </div>
+    </div>
+
+    <div class="ejemplo">
+        <h2>Ejemplo:</h2>
+        <p>Un <strong>cliente</strong> puede realizar varios <strong>pedidos</strong>, pero cada pedido pertenece solo a un cliente. Esto crea una relación de uno a muchos entre las tablas "Cliente" y "Pedidos".</p>
+    </div>
 	    <p> Modelo Entidad-Relación (ER) - Relación Uno a Muchos </p>
-
-		<p>En el modelo entidad-relación (ER), la relación uno a muchos (1:N) </p>
-
-		<p><br> describe una relación en la que una entidad A puede estar asociada con múltiples instancias de una entidad B, pero una instancia de B solo puede estar asociada con una instancia de A. </p>
-
-		<p><br> Entidad A: Tabla o entidad que representa un objeto único (por ejemplo, "Autor"). </p>
-
-		<p><br> Entidad B: Tabla o entidad que representa múltiples objetos que están relacionados con una única instancia de A (por ejemplo, "Libro"). </p>
-
-		<p><br> Relación: El autor puede escribir varios libros, pero cada libro tiene un solo autor. </p>
-
-		<p><br> Ejemplo: </p>
-
-		<p><br> Autor y Libro. </p>
-
-		<p><br> Un autor puede escribir varios libros, pero cada libro tiene un solo autor. </p>
-
-		<p><br> La relación es uno a muchos (1:N). </p>
-		 </p>
-
+		 <p> Realizado por: Elkin Gerardo Gutierrez Martinez
+			 Anderson Yesid Alzate Rodriguez</p>
+	
 	    <p>	<br> Ejemplo:
 		<br> Un sistema de gestión de estudiantes y cursos, donde un curso puede tener muchos estudiantes, 
 		<br> pero cada estudiante está inscrito en un solo curso.
