@@ -1,204 +1,97 @@
 <!-- dia2.html -->
 <!DOCTYPE html>
+ html lang="es">
 <html lang="es">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Día 4</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="container">
-        <h1>Modelo Entidad Relación</h1>
-	    <p>Es una metodología para diseñar y representar bases de datos de una manera conceptual, se usa <BR>para estructurar la información de un sistema de entidades, atributos y relaciones <BR>Componentes principales del MER</p>
-		<p>Entidades: estas representas objetos u conceptos que tienen existencia en el mundo real que tienen una existencia<br>independiente a la base de datos, se clasifica en:</p>
-	<p1>-Entidades fuertes: Son una Fuente totalmente independiente como Cliente y Proveedor</p1>
-	<p2>-Entidades débiles: Depende de otra entidad para existir como “Detalles de factura” depende de “factura”</p2>
-        <p>2.1. Relaciones entre entidades.</p>
-	 <p> las relaciones entre entidades son conexiones que se establecen entre dos o más entidades en una base de datos. Estas relaciones se representan en un diagrama de entidad-relación (ERD).<br> 
-<ol>Tipos de relaciones 
-Grado 1 o relación urinaria: Relaciona una entidad consigo misma. Este es el caso de un delegado de alumnos de un curso que también es alumno del curso. 
-Grado 2 o relación binaria: Conecta dos entidades distintas. Por ejemplo, un proveedor que suministra artículos. 
-Grado 3 o relación ternaria: Vincula tres o más entidades. Por ejemplo, un cliente de un banco que tiene varias cuentas y cada una en una sucursal. </ol><br>
-Las relaciones entre entidades pueden tener diferentes tipos de correspondencia, que indican cómo se conectan entre sí:
-1:1 (Uno a uno): A cada elemento de la primera entidad le corresponde uno y solo uno de la segunda entidad, y viceversa. Por ejemplo, un cliente de un hotel ocupa una única habitación, o un curso de alumnos está asignado a un solo aula, y solo ese grupo de alumnos asiste a esa aula.
-1:N (Uno a muchos): A cada elemento de la primera entidad le corresponde uno o más elementos de la segunda entidad, pero a cada elemento de la segunda entidad solo le corresponde uno de la primera entidad. Un ejemplo sería un proveedor que suministra varios artículos, pero cada artículo tiene un único proveedor.
-N:M (Varios a varios): Varias ocurrencias de una entidad pueden estar asociadas a varias de la otra. Por ejemplo, un estudiante puede inscribirse en varios cursos, y cada curso puede tener varios estudiantes inscritos.</p>
-	<p>2.2. Relaciones de uno a muchos.</p>
-	
-	    <p> Modelo Entidad-Relación (ER) - Relación Uno a Muchos </p>
-
-		<p>En el modelo entidad-relación (ER), la relación uno a muchos (1:N) </p>
-
-		<p><br> describe una relación en la que una entidad A puede estar asociada con múltiples instancias de una entidad B, pero una instancia de B solo puede estar asociada con una instancia de A. </p>
-
-		<p><br> Entidad A: Tabla o entidad que representa un objeto único (por ejemplo, "Autor"). </p>
-
-		<p><br> Entidad B: Tabla o entidad que representa múltiples objetos que están relacionados con una única instancia de A (por ejemplo, "Libro"). </p>
-
-		<p><br> Relación: El autor puede escribir varios libros, pero cada libro tiene un solo autor. </p>
-
-		<p><br> Ejemplo: </p>
-
-		<p><br> Autor y Libro. </p>
-
-		<p><br> Un autor puede escribir varios libros, pero cada libro tiene un solo autor. </p>
-
-		<p><br> La relación es uno a muchos (1:N). </p>
-		 </p>
-
-	    <p>	<br> Ejemplo:
-		<br> Un sistema de gestión de estudiantes y cursos, donde un curso puede tener muchos estudiantes, 
-		<br> pero cada estudiante está inscrito en un solo curso.
-		<br> +------------------+         1  +-------------------+
-		<br> |    Curso        | ------------|   Estudiante      |
-		<br> |-----------------|         N   |-------------------|
-		<br> | id_curso (PK)   |             | id_estudiante (PK)|
-		<br> | nombre          |             | nombre            |
-		<br> | duración        |             | id_curso (FK)     |
-		<br> +-----------------+             +-------------------+
-		<br> (PK) = Clave primaria (Primary Key)
-		<br> (FK) = Clave foránea (Foreign Key)
-		<br> 📌 Explicación:
-
-		<br> La entidad Curso tiene un identificador único (id_curso).
-		<br> La entidad Estudiante tiene un identificador único (id_estudiante) y una clave foránea (id_curso) que indica en qué curso está inscrito.
-		<br> La relación es Uno a Muchos (1:N) porque un curso puede tener muchos estudiantes, pero cada estudiante pertenece a un solo curso.
-	    </p>
-	    
-	<p>2.3. Relaciones de muchos a muchos.</p>
-	<p>2.4. v
-		!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Relación 1 a 1</title>
+    <title>Listado de Desarrolladores</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-        }
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            margin-top: 50px;
-        }
-        .box {
-            border: 2px solid #333;
+            background-color: #f0f2f5;
             padding: 20px;
-            width: 200px;
-            text-align: center;
+            margin: 0;
+        }
+
+        h1, h2 {
+            color: #2c3e50;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .empleado {
+            background-color: #ffffff;
+            border: 1px solid #dcdcdc;
             border-radius: 8px;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        .arrow {
-            font-size: 24px;
+
+        .empleado p {
+            margin: 8px 0;
+            font-size: 16px;
+        }
+
+        .empleado span {
             font-weight: bold;
+            color: #34495e;
         }
+
+        .definicion {
+            background-color: #ecf0f1;
+            border-left: 5px solid #2980b9;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+
+        .definicion h2 {
+            margin-top: 0;
+            color: #2980b9;
+        }
+
     </style>
 </head>
 <body>
 
-    <h2 style="text-align: center;">Relación 1 a 1: Persona ↔ Cedula </h2>
-
     <div class="container">
-        <div class="box">
-            <h3>Persona</h3>
-            <p>Nombre: Andres Alfonso</p>
-            <p> Nombre: Santiago gutierrez</P> 
-		<p>Edad: 22</p>
-		<p> Edad: 20 </p>
+        <h1>Listado de Desarrolladores</h1>
+
+        <div class="empleado">
+            <h2>Desarrollador 1</h2>
+            <p><span>ID:</span> 1</p>
+            <p><span>Nombre:</span> Andres Felipe Alfonso</p>
+            <p><span>Puesto:</span> Desarrollador</p>
+            <p><span>Años:</span> 21</p>
         </div>
 
-        <div class="arrow">↔</div>
+        <div class="empleado">
+            <h2>Desarrollador 2</h2>
+            <p><span>ID:</span> 2</p>
+            <p><span>Nombre:</span> Santiago Gutierrez</p>
+            <p><span>Puesto:</span> Desarrollador</p>
+            <p><span>Años:</span> 20</p>
+        </div>
 
-        <div class="box">
-            <h3>Cedula</h3>
-            <p>Número: 1001048285</p>
-		<p> Numero: 1106632580 </p>
-            <p>ID Persona: 1</p>
+        <div class="definicion">
+            <h2>Definición de Relación Uno a Uno</h2>
+            <p>
+            </p>
         </div>
     </div>
 
 </body>
 </html>
 
+		
+            
+		
 
-	     <p>En bases de datos relacionales, una relación de muchos a muchos (M:N) se da cuando múltiples registros de una tabla pueden estar asociados con múltiples registros de otra tabla. 
-		    Este tipo de relación no puede ser representada directamente entre dos tablas,
-		    por lo que se necesita una tabla intermedia (también conocida como tabla puente o de relación) que contenga claves foráneas de ambas tablas relacionadas.
-Ejemplo:Imaginemos dos entidades: Estudiantes y Cursos.
-Un estudiante puede estar inscrito en varios cursos.
-Un curso puede tener varios estudiantes inscritos.
-		    https://sl.bing.net/dNJvaKmDWAC </p>
-	<p>2.4. Relaciones de uno a uno.</p>
-        <a href="index.html" class="back">Volver al inicio</a>
-    <!--Este es el inicio de contenido de nuestra investigacion-->
-    </div>
-    <div class="contenedor-investigacion">
-        <div class="encabezado-investigacion">
-            <h1>Modelo Entidad-Relación</h1>
-        </div>
+        
 
-        <div class="caja-investigacion">
-            <h2>¿Qué es el Modelo Entidad-Relación?</h2>
-            <p>El Modelo Entidad-Relación (E-R) es una herramienta para representar cómo personas, objetos o conceptos se relacionan dentro de una base de datos. Fue propuesto por Peter Chen en 1976.</p>
-
-            <div class="imagen-investigacion">
-                <img src="https://www.mediafire.com/convkey/221b/i2yord22uy58qou7g.jpg" alt="Ejemplo de modelo E-R">
-                <p>Ejemplo de modelo E-R con entidades y relaciones.</p>
-            </div>
-
-            <h3>Elementos del Modelo</h3>
-            <ul>
-                <li><strong>Entidades:</strong> Representan objetos del mundo real (Ej: Cliente, Producto, Aprendiz).</li>
-                <li><strong>Atributos:</strong> Características de las entidades (Ej: Nombre, Dirección).</li>
-                <li><strong>Clave primaria:</strong> Identificador único de cada entidad.</li>
-                <li><strong>Relaciones:</strong> Conexiones entre entidades (Ej: Cliente compra Producto).</li>
-            </ul>
-
-            <div class="imagen-investigacion">
-                <img src="https://www.mediafire.com/convkey/e1e3/1m66hgr7jwfgdt27g.jpg" alt="Ejemplo de relaciones en E-R">
-                <p>Ejemplo de relaciones entre entidades.</p>
-            </div>
-
-            <h3>Tipos de Relaciones</h3>
-            <ul>
-                <li><strong>Uno a Uno:</strong> Cada entidad solo se conecta con otra (Ej: Persona - Pasaporte).</li>
-                <li><strong>Uno a Muchos:</strong> Una entidad se relaciona con varias (Ej: Cliente - Pedidos).</li>
-                <li><strong>Muchos a Muchos:</strong> Varias entidades pueden vincularse entre sí (Ej: Estudiantes - Cursos).</li>
-            </ul>
-
-            <div class="imagen-investigacion">
-                <img src="https://images.ctfassets.net/w6r2i5d8q73s/uln5V831TeD4zyrn7zYhA/7bc5ec4be7cc532d882e1d8d9586ec97/diagramming_ER_diagramming_product_image_EN_big_3_2?fm=webp&q=75" alt="Ejemplo de relación uno a muchos">
-                <p>Ejemplo de relación Uno a Muchos.</p>
-            </div>
-
-            <h3>Usos del Modelo</h3>
-            <ul>
-                <li>Diseño de bases de datos.</li>
-                <li>Optimización de procesos empresariales.</li>
-                <li>Análisis de datos en investigaciones.</li>
-                <li>Educación y planificación de sistemas de información.</li>
-            </ul>
-
-            <div class="imagen-investigacion">
-                <img src="https://www.godaddy.com/resources/latam/wp-content/uploads/sites/4/2023/06/portada_base-de-datos.png?size=1920x0" alt="Ejemplo de bases de datos">
-                <p>Aplicación del modelo en bases de datos reales.</p>
-            </div>
-
-            <div class="caja-investigacion">
-                
-                <h3>Miembros de el equipo de Investigacion</h3>
-                <ul>
-                    <li>Henry Alejandro Forero Lopez</li>
-                    <li>Kevin.</li>
-                    <li>Jhon</li>
-                </ul>
-            </div>
-
-    </div>
-</body>
-</html>
+            
