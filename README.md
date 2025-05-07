@@ -31,6 +31,7 @@ Cada estudiante deberá modificar este archivo **README.md**, colocando un emoji
 29. ⚽​ **Jeremy Lopez**
 30. 🐱‍👤 **Daniel Pedreros**
 37. **Señor Lapiz***
+38. Otro estudiante
 
 
 
